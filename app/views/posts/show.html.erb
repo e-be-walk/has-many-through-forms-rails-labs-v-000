@@ -18,26 +18,26 @@
 
 <h3>Connect with the users that left you comments:</h3>
 <ul>
-  <% @post.users.uniq.each do |user| %> 
+  <% @post.users.uniq.each do |user| %>
   <li><%= link_to user.username, user_path(user) %></li>
-  <% end %> 
+  <% end %>
 </ul>
 
 <h3>Make a new comment:</h3>
-  <%= form_for @post.comments.build do |f| %> 
-  <%= f.hidden_field :post_id %> 
+  <%= form_for @post.comments.build do |f| %>
+  <%= f.hidden_field :post_id %>
   <p>Select/Create an account: </p>
   <br>
   <%= f.collection_select :user_id, :id, :username, {:include_blank => true} %>
   <br>
-  <%= f.fields_for :user, @post.comments.last.build_user do |user| %> 
-  <%= user.label :username %> 
+  <%= f.fields_for :user, @post.comments.last.build_user do |user| %>
+  <%= user.label :username %>
   <br>
-  <%= user.text_field :username %> 
+  <%= user.text_field :username %>
   <br>
   <% end %>
 
-  <%= f.label :content %> 
+  <%= f.label :content %>
   <br>
-  <%= f.submit %> 
+  <%= f.submit %>
 <% end %>
