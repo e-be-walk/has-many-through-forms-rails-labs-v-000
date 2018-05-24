@@ -2,7 +2,7 @@
 
 <p><%= @post.content %></p>
 <br>
-<h3>This post has these categories:</h3> 
+<h3>This post has these categories:</h3>
   <ul>
     <% @post.categories.each do |category| %>
     <li><%= category.name %></li>
@@ -11,10 +11,7 @@
 
 <h3>Comments</h3>
 <ul>
-  <% @post.comments.each do |comment| %> 
+  <% @post.comments.each do |comment| %>
   <li><%= comment.user.username %> says: <%= comment.content %></li>
   <% end %>
 </ul>
-
-
-
